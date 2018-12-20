@@ -31,7 +31,7 @@ let view model dispatch =
         button [on.click (fun _ -> dispatch Decrement)] [text "-"]
         span [] [textf " %i " model.value]
         button [on.click (fun _ -> dispatch Increment)] [text "+"]
-        textarea [on.click textAreaClick] []
+        button [on.click textAreaClick; attr.style "background: green;"] [ text "Hello"]
     ]
 
 type MyApp() =
