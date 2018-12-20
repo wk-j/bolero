@@ -23,11 +23,15 @@ let update message model =
     | Increment -> { model with value = model.value + 1 }
     | Decrement -> { model with value = model.value - 1 }
 
+let textAreaClick _ =
+    printfn "click ... %A" (System.DateTime.Now)
+
 let view model dispatch =
     concat [
         button [on.click (fun _ -> dispatch Decrement)] [text "-"]
         span [] [textf " %i " model.value]
         button [on.click (fun _ -> dispatch Increment)] [text "+"]
+        textarea [on.click textAreaClick] []
     ]
 
 type MyApp() =
