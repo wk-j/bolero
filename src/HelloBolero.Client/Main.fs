@@ -3,6 +3,7 @@ module HelloBolero.Client.Main
 open Elmish
 open Bolero
 open Bolero.Html
+open System.Collections.Generic
 
 type Model =
     {
@@ -24,7 +25,8 @@ let update message model =
     | Decrement -> { model with value = model.value - 1 }
 
 let textAreaClick _ =
-    printfn "click ... %A" (System.DateTime.Now)
+    let text = [1;2;3;4] |> List.map (fun x -> x * 2) |> List.sum
+    printfn "click ... %A" (text)
 
 let view model dispatch =
     concat [
